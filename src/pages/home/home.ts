@@ -1,3 +1,4 @@
+import { ListPage } from './../list/list';
 import { WhiskiesProvider } from './../../providers/whiskies/whiskies';
 import { Component } from '@angular/core';
 import { NavController, ModalController, LoadingController, Loading  } from 'ionic-angular';
@@ -38,7 +39,7 @@ export class HomePage {
     })
   }
   viewHandler(){
-
+    this.navCtrl.setRoot(ListPage)
   }
   presentLoading(){
     this.loading = this.loadingCtrl.create({

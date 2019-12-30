@@ -12,7 +12,7 @@
   <ion-list  >
     <ion-item *ngFor="let item of whiskies">
       <ion-thumbnail item-start>
-        <img src="https://picsum.photos/200/300">
+        <img src="https://picsum.photos/{{item.id}}00/300">
       </ion-thumbnail>
       <h2>{{item.name}}</h2>
       <p>{{item.origin}}</p>
