@@ -1,0 +1,1 @@
+# First time create project with angular and ionic :')
