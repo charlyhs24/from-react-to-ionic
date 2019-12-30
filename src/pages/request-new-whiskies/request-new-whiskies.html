@@ -15,32 +15,30 @@
 
 <ion-content padding>
 
-  <form (ngSubmit)="onSubmit()" >
-    <ion-list>
-      <ion-item>
-        <ion-label floating>Product ID</ion-label>
-        <ion-input type="text" readonly value="WS-0102"></ion-input>
-      </ion-item>
+  <form (ngSubmit)="onSubmit()" margin>
+    <ion-item>
+      <ion-label floating>Product ID</ion-label>
+      <ion-input type="text" readonly value="WS-0102"></ion-input>
+    </ion-item>
       
-      <ion-item>
-        <ion-label floating>Whiskies Name</ion-label>
-        <ion-input name="whiskies_name" [(ngModel)]="whiskies.name" type="text"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label floating>Whiskies Name</ion-label>
+      <ion-input name="whiskies_name" [(ngModel)]="whiskies.name" type="text"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Origin</ion-label>
-        <ion-select name="origin" [(ngModel)]="whiskies.origin" >
-          <ion-option value="US">US</ion-option>
-          <ion-option value="london">London</ion-option>
-          <ion-option value="scotland">Scotland</ion-option>
-          <ion-option value="netherland">Netherland</ion-option>
-          <ion-option value="swedian">Swedian</ion-option>
-          <ion-option value="france">France</ion-option>
-          <ion-option value="indonesia">Indonesia</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-    <div style="display: flex; float: right;">
+    <ion-item>
+      <ion-label floating>Origin</ion-label>
+      <ion-select name="origin" [(ngModel)]="whiskies.origin" >
+        <ion-option value="US">US</ion-option>
+        <ion-option value="london">London</ion-option>
+        <ion-option value="scotland">Scotland</ion-option>
+        <ion-option value="netherland">Netherland</ion-option>
+        <ion-option value="swedian">Swedian</ion-option>
+        <ion-option value="france">France</ion-option>
+        <ion-option value="indonesia">Indonesia</ion-option>
+      </ion-select>
+    </ion-item>
+    <div style="display: flex; float: right;" margin>
       <button type="submit" ion-button round>Request</button>
     </div>
   </form>

@@ -1,15 +1,14 @@
 <ion-header>
   <ion-navbar >
+    <ion-searchbar (ionInput)="getWhiskiesResult($event)" ></ion-searchbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    
-    <ion-title>List of Whiskies</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar (ionInput)="getWhiskiesResult($event)" ></ion-searchbar>
+  
   <ion-list  >
     <ion-item *ngFor="let item of whiskies">
       <ion-thumbnail item-start>
