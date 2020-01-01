@@ -38,8 +38,8 @@
       <ion-datetime (ionChange)="changeDateHandler($event)" displayFormat="MMM/DD/YYYY"  pickerFormat="MMM/DD/YYYY"   [(ngModel)]="time.expired_date" [ngModelOptions]="{standalone: true}" ></ion-datetime>
     </ion-item>
     <ion-item>
-      <p>Duration</p><br>
-      <p>{{time.start_date | dateTimeHelper : time.start_date}}</p>
+      <p>Expire in</p><br>
+      <p>{{ time.duration }} day</p>
     </ion-item>
     <ion-item>
       <ion-label floating>Origin</ion-label>
