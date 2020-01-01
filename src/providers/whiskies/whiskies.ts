@@ -28,4 +28,14 @@ export class WhiskiesProvider {
     }
     return this.http.post(URL, body, options)
   }
+  getWhiskiesFromApiByDate(data){
+    const URL = `${this.API_URL}/getwhiskiesByDate`;
+    const body = JSON.stringify(data);
+    const options = {
+      headers : new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    }
+    return this.http.post(URL, body, options)
+  }
 }
