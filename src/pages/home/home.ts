@@ -1,3 +1,4 @@
+
 import { ListPage } from './../list/list';
 import { WhiskiesProvider } from './../../providers/whiskies/whiskies';
 import { Component } from '@angular/core';
@@ -15,7 +16,9 @@ export class HomePage {
     public whiskiesProvider : WhiskiesProvider,
     public loadingCtrl : LoadingController, 
     public alertCtrl : AlertController) {
-    this.presentLoading();
+    this.presentLoading();      
+  }
+  ionViewDidLoad(){
     this.getWhiskies();
   }
   getWhiskiesResult(ev:any){

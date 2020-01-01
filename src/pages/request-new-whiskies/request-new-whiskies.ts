@@ -20,12 +20,19 @@ export class RequestNewWhiskiesPage {
     name : '',
     origin: ''
   }
+  public time = {
+    start_date : '',
+    expired_date : ''
+  }
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public whiskiesProvider : WhiskiesProvider,
     public alertCtrl : AlertController,
     public loadingCtrl : LoadingController) {
 
+  }
+  changeDateHandler(e:any){
+    console.log(this.time)
   }
   onSubmit(){
     this.presentLoading();

@@ -1,3 +1,5 @@
+import { ExponentialStrengthPipe } from './../pipes/exponential-strength/exponential-strength';
+import { DateTimeHelperPipe } from './../pipes/date-time-helper/date-time-helper';
 import { RequestNewWhiskiesPage } from './../pages/request-new-whiskies/request-new-whiskies';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -16,7 +18,9 @@ import { WhiskiesProvider } from '../providers/whiskies/whiskies';
     MyApp,
     HomePage,
     ListPage,
-    RequestNewWhiskiesPage
+    RequestNewWhiskiesPage,
+    DateTimeHelperPipe,
+    ExponentialStrengthPipe
   ],
   imports: [
     BrowserModule,
