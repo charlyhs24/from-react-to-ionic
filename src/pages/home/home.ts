@@ -1,7 +1,7 @@
 import { ListPage } from './../list/list';
 import { WhiskiesProvider } from './../../providers/whiskies/whiskies';
 import { Component } from '@angular/core';
-import { NavController, ModalController, LoadingController, Loading  } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, Loading  } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -13,7 +13,8 @@ export class HomePage {
   loading: Loading = null;
   constructor(public navCtrl: NavController, 
     public whiskiesProvider : WhiskiesProvider,
-    public loadingCtrl : LoadingController) {
+    public loadingCtrl : LoadingController, 
+    public alertCtrl : AlertController) {
     this.presentLoading();
     this.getWhiskies();
   }
@@ -36,6 +37,8 @@ export class HomePage {
       this.loading.dismiss();
     }, (error) =>{
       console.log(error)
+      this.loading.dismiss();
+      this.showErrorAlert(error.message)
     })
   }
   viewHandler(){
@@ -47,5 +50,13 @@ export class HomePage {
       showBackdrop : true,
     })
     return this.loading.present()
+  }
+  showErrorAlert(error){
+    const alert = this.alertCtrl.create({
+      title : 'Fail request new whiskies :(',
+      subTitle : error,
+      buttons : ['OK']
+    });
+    alert.present()
   }
 }
