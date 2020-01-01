@@ -33,7 +33,20 @@ export class RequestNewWhiskiesPage {
 
   }
   changeDateHandler(e:any){
-    this.time.duration = this.generateDurationByDay()
+    this.presentLoading()
+    
+    this.whiskiesProvider.getWhiskiesFromApiByDate(this.time)
+    .subscribe((response) => {
+      console.log(response[0])
+      this.loading.dismiss();
+      this.time.duration = this.generateDurationByDay()
+      this.whiskies.name = response[0].name
+      this.whiskies.origin = response[0].origin
+    }, (error) => {
+      console.log(error)
+      this.showErrorAlert(error.statusText)
+      this.loading.dismiss()
+    })
   }
   onSubmit(){
     this.presentLoading();
