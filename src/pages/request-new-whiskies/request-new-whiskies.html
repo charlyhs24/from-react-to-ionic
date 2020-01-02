@@ -26,8 +26,12 @@
       <ion-input name="whiskies_name" [(ngModel)]="whiskies.name" type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Time</ion-label>
-      <ion-datetime displayFormat="h:mm A"  pickerFormat="h mm A"></ion-datetime>
+      <ion-label floating>Time Start </ion-label>
+      <ion-datetime displayFormat="h:mm A"  pickerFormat="h mm A" [(ngModel)]="time.time_start"  [ngModelOptions]="{standalone: true}"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Time End </ion-label>
+      <ion-datetime displayFormat="h:mm A"  pickerFormat="h mm A"[(ngModel)]="time.time_end"  [ngModelOptions]="{standalone: true}" ></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label floating>Start Date</ion-label>
@@ -39,7 +43,7 @@
     </ion-item>
     <ion-item>
       <p>Expire in</p><br>
-      <p>{{ time.duration }} day</p>
+      <p>{{ time.duration }} Day / {{ time.time_duration.hours ? time.time_duration.hours + ' Hour : ' : '' }} {{ time.time_duration.minute ? time.time_duration.minute + ' Minute' : '' }}  </p>
     </ion-item>
     <ion-item>
       <ion-label floating>Origin</ion-label>

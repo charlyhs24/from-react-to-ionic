@@ -23,6 +23,12 @@ export class RequestNewWhiskiesPage {
   public time = {
     start_date : '',
     expired_date : '',
+    time_start : '',
+    time_end : '',
+    time_duration : {
+      hours : null,
+      minute : null
+    },
     duration : null
   }
   constructor(public navCtrl: NavController, 
@@ -34,10 +40,12 @@ export class RequestNewWhiskiesPage {
   }
   changeDateHandler(e:any){
     this.presentLoading()
-    
+    this.generateDurationByTime()
+    console.log(this.time)
     this.whiskiesProvider.getWhiskiesFromApiByDate(this.time)
     .subscribe((response) => {
       console.log(response[0])
+      
       this.loading.dismiss();
       this.time.duration = this.generateDurationByDay()
       this.whiskies.name = response[0].name
@@ -87,6 +95,12 @@ export class RequestNewWhiskiesPage {
     const start_date = new Date(this.time.start_date)
     const end_date = new Date(this.time.expired_date)
     return Math.round(Math.round((end_date.getTime() - start_date.getTime())/formula))
+  }
+  generateDurationByTime(){
+    let start_time = this.time.time_start.split(":")
+    let end_time = this.time.time_end.split(":")
+    this.time.time_duration.hours = (parseInt(end_time[0]) - parseInt(start_time[0]))  
+    this.time.time_duration.minute = (parseInt(end_time[1]) - parseInt(start_time[1]))
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad RequestNewWhiskiesPage');
