@@ -46,8 +46,11 @@
       <p>{{ time.duration }} Day / {{ time.time_duration.hours ? time.time_duration.hours + ' Hour : ' : '' }} {{ time.time_duration.minute ? time.time_duration.minute + ' Minute' : '' }}  </p>
     </ion-item>
     <ion-item>
+      <ion-label floating>Orgin Search</ion-label>
+      <ion-input (click)="changeOrigin()"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label floating>Origin</ion-label>
-      
       <ion-select name="origin" [(ngModel)]="whiskies.origin" >
         <ion-searchbar></ion-searchbar>
         <ion-option value="US">US</ion-option>

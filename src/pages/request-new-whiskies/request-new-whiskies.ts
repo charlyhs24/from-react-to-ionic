@@ -1,6 +1,6 @@
 import { WhiskiesProvider } from './../../providers/whiskies/whiskies';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Loading, LoadingController } from 'ionic-angular';
+import { Modal, ModalOptions ,IonicPage, NavController, NavParams, AlertController, Loading, LoadingController, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the RequestNewWhiskiesPage page.
@@ -35,6 +35,7 @@ export class RequestNewWhiskiesPage {
     public navParams: NavParams,
     public whiskiesProvider : WhiskiesProvider,
     public alertCtrl : AlertController,
+    private modalCtrl : ModalController,
     public loadingCtrl : LoadingController) {
 
   }
@@ -89,6 +90,11 @@ export class RequestNewWhiskiesPage {
       showBackdrop : true,
     })
     return this.loading.present()
+  }
+  changeOrigin(){
+
+    const myModal:Modal = this.modalCtrl.create('ModalPage')
+    myModal.present()
   }
   generateDurationByDay(){
     const formula = 24*60*60*1000;
