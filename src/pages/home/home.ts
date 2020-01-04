@@ -2,7 +2,7 @@
 import { ListPage } from './../list/list';
 import { WhiskiesProvider } from './../../providers/whiskies/whiskies';
 import { Component } from '@angular/core';
-import { Modal, NavController, AlertController, LoadingController, Loading, ModalController  } from 'ionic-angular';
+import { Modal, NavController, AlertController, LoadingController, Loading, ModalController, ModalOptions  } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -20,11 +20,14 @@ export class HomePage {
     this.presentLoading();      
   }
   openModal(){
+    const modalopt:ModalOptions = {
+      enableBackdropDismiss : false  //set view modal backdrop false
+    }
     const myData = {
       name : 'paul halliday',
       occupation : 'developer'
     }
-    const anyModal:Modal = this.modalCtrl.create('ModalPage', {data : myData})
+    const anyModal:Modal = this.modalCtrl.create('ModalPage', {data : myData}, modalopt)
     anyModal.present()
     anyModal.onDidDismiss((response) => {
     console.log('data from modal !')
