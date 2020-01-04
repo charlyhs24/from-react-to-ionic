@@ -47,7 +47,9 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Origin</ion-label>
+      
       <ion-select name="origin" [(ngModel)]="whiskies.origin" >
+        <ion-searchbar></ion-searchbar>
         <ion-option value="US">US</ion-option>
         <ion-option value="london">London</ion-option>
         <ion-option value="scotland">Scotland</ion-option>

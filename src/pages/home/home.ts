@@ -2,7 +2,7 @@
 import { ListPage } from './../list/list';
 import { WhiskiesProvider } from './../../providers/whiskies/whiskies';
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading  } from 'ionic-angular';
+import { Modal, NavController, AlertController, LoadingController, Loading, ModalController  } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -15,8 +15,21 @@ export class HomePage {
   constructor(public navCtrl: NavController, 
     public whiskiesProvider : WhiskiesProvider,
     public loadingCtrl : LoadingController, 
+    private modalCtrl : ModalController,
     public alertCtrl : AlertController) {
     this.presentLoading();      
+  }
+  openModal(){
+    const myData = {
+      name : 'paul halliday',
+      occupation : 'developer'
+    }
+    const anyModal:Modal = this.modalCtrl.create('ModalPage', {data : myData})
+    anyModal.present()
+    anyModal.onDidDismiss((response) => {
+    console.log('data from modal !')
+      console.log(response)
+    })
   }
   ionViewDidLoad(){
     this.getWhiskies();
